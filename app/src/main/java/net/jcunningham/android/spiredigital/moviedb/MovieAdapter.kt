@@ -1,14 +1,13 @@
 package net.jcunningham.android.spiredigital.moviedb
 
 import android.content.Context
-import android.content.Intent
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import com.squareup.picasso.Picasso
 
 class MovieAdapter(private var context: Context, private var movies: ArrayList<Movie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
@@ -22,7 +21,9 @@ class MovieAdapter(private var context: Context, private var movies: ArrayList<M
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+
         viewHolder.titleTextView.text = movies[position].title
+
         Picasso.get().load(String.format(thumbnailUrlFormat, movies[position].poster_path)).into(viewHolder.imageView)
 
         viewHolder.itemView.setOnClickListener {
@@ -39,7 +40,7 @@ class MovieAdapter(private var context: Context, private var movies: ArrayList<M
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val titleTextView: TextView = view.findViewById(R.id.movieTitle)
+        val titleTextView: TextView = view.findViewById(R.id.movieDetailsTitle)
         val imageView: ImageView = view.findViewById(R.id.imageView)
     }
 

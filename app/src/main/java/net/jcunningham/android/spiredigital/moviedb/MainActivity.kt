@@ -2,9 +2,7 @@ package net.jcunningham.android.spiredigital.moviedb
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -20,20 +18,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
-    //private lateinit var requestQueue: RequestQueue
-    private val TAG = "MAIN_ACTIVITY"
-    private val JSON_URL = "https://api.themoviedb.org/3/movie/popular?api_key=ade6e5277bfd242f810ddacd925148b0"
-
     private lateinit var binding : ActivityMainBinding
     //private lateinit var viewModel : MainActivityViewModel
     private var movies: ArrayList<Movie> = ArrayList()
     private lateinit var movieAdapter: MovieAdapter
-    private lateinit var progressBar: ProgressBar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
@@ -58,9 +50,6 @@ class MainActivity : AppCompatActivity() {
         movieAdapter = MovieAdapter(this, movies)
         recyclerView.adapter = movieAdapter
 
-
-
-
         //
         // Networking setup
         //
@@ -78,11 +67,10 @@ class MainActivity : AppCompatActivity() {
                     movieAdapter.setItems(response.body()!!.results)
                     movieAdapter.notifyDataSetChanged()
                 }
-                binding.progressBar.setVisibility(View.GONE)
+                binding.progressBar.visibility = View.GONE
             }
             override fun onFailure(call: Call<PopularMovieResponse>, t: Throwable) {
-                Log.d("TEST", "Error")
-                binding.progressBar.setVisibility(View.GONE)
+                binding.progressBar.visibility = View.GONE
             }
         })
     }
@@ -94,8 +82,6 @@ class MainActivity : AppCompatActivity() {
         binding.movieList.itemAnimator = DefaultItemAnimator()
 
     }
-
-
 
     fun selectMovie(movie:Movie) {
 

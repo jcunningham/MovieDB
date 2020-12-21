@@ -4,4 +4,5 @@
     <string name="api_popular_movies_endpoint" formatted="false">https://api.themoviedb.org/3/movie/popular?api_key=%1$s</string>
     <string name="api_movie_details_endpoint" formatted="false">https://api.themoviedb.org/3/movie/%2$s?api_key=%1$s</string>
     <string name="movie_thumbnail_format" formatted="false">https://image.tmdb.org/t/p/w220_and_h330_face/%1$s</string>
+    <string name="movie_rating_format" formatted="false">%1$.1f / 10</string>
 </resources>
