@@ -8,7 +8,7 @@ class PopularMovieResponse {
     @SerializedName("results")
     var results = ArrayList<Movie>()
     @SerializedName("total_pages")
-    var total_pages: Int? = 0
+    var totalPages: Int? = 0
     @SerializedName("total_results")
-    var total_results: Int? = 0
+    var totalResults: Int? = 0
 }

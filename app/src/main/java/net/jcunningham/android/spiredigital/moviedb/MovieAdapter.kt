@@ -1,7 +1,6 @@
 package net.jcunningham.android.spiredigital.moviedb
 
 import android.content.Context
-import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +27,7 @@ class MovieAdapter(private var context: Context, private var movies: ArrayList<M
 
         viewHolder.itemView.setOnClickListener {
             val mainActivity = context as MainActivity
-            mainActivity.selectMovie(movies[position]);
+            mainActivity.selectMovie(movies[position])
         }
 
 

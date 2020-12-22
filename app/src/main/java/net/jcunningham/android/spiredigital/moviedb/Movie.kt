@@ -1,7 +1,6 @@
 package net.jcunningham.android.spiredigital.moviedb
 
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
 
 class Movie {
     @SerializedName("genre_ids")
